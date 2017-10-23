@@ -1,0 +1,13 @@
+__pycache__/
+backup
+*.avi
+*.model
+*.mov
+*.weights
+*.csv
+*.mp4
+*.prproj
+*.DS_Store
+items/*
+backgrounds/*
+assets/
