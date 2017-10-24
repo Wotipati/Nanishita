@@ -2,7 +2,7 @@
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout, QLabel
 from PyQt5.QtGui import QPixmap, QFont, QIcon
-from PyQt5.QtCore import QSize
+from PyQt5.QtCore import QSize, Qt
 
 
 class SubjectButton(QWidget):
@@ -15,7 +15,7 @@ class SubjectButton(QWidget):
                                ' Making        \n  slides       ', ' Taking\n  a class      ', ' Chores        ']
 
         self.label_now_subject = QLabel('<h1></h1>', self)
-        self.icon_now_subject = QLabel('<h1></h1>', self)
+        self.icon_now_subject = QPushButton()
         self.layout_now_subject = QHBoxLayout()
         self.layout_grid = QGridLayout()
         self.buttons_subject = []
@@ -32,6 +32,9 @@ class SubjectButton(QWidget):
                            './icon/chores.png']
 
     def init_ui(self):
+        self.icon_now_subject.setFixedHeight(80)
+        self.icon_now_subject.setFixedWidth(80)
+
         path_icons = ['./icon/meeting.png',
                       './icon/implementation.png',
                       './icon/experiment.png',
@@ -42,6 +45,8 @@ class SubjectButton(QWidget):
                       './icon/class.png',
                       './icon/chores.png']
 
+        self.layout_grid.setAlignment(Qt.AlignLeft)
+
         positions_subject = [(i, j) for i in range(3) for j in range(3)]
 
         for position, subject in zip(positions_subject, self.labels_subject):
@@ -50,7 +55,7 @@ class SubjectButton(QWidget):
             button.setFont(font_button)
 
             button.setFixedHeight(80)
-            button.setIconSize(QSize(100, 100))
+            button.setIconSize(QSize(60, 60))
             button.setIcon(QIcon(path_icons[position[0]*3+position[1]]))
             self.buttons_subject.append(button)
             self.layout_grid.addWidget(button, *position)
@@ -79,7 +84,6 @@ class SubjectButton(QWidget):
                       './icon/class.png',
                       './icon/chores.png']
 
-        pixmap = QPixmap(path_icons[index])
-        pixmap_resized = pixmap.scaled(70, 70)
-        self.icon_now_subject.setPixmap(pixmap_resized)
+        self.icon_now_subject.setIconSize(QSize(60, 60))
+        self.icon_now_subject.setIcon(QIcon(path_icons[index]))
         self.label_now_subject.setText('<font size="20" face="monospace"><b>{0}</b></font>'.format((self.buttons_subject[index].text())))
