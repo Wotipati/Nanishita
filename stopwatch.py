@@ -40,6 +40,7 @@ class Stopwatch(QWidget):
 
         font_button = QFont("monospace", 20)
         font_button.setBold(True)
+        font_button.setStyleSheet("color:#F3B562;")
 
         button_start = QPushButton("Start", self)
         button_start.setStyleSheet("background-color:#3C3C46;")
