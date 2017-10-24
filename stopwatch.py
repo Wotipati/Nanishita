@@ -42,19 +42,19 @@ class Stopwatch(QWidget):
         font_button.setBold(True)
 
         button_start = QPushButton("Start", self)
-        button_start.setStyleSheet("background-color:#3C3C46; color:#D9D9D9;")
+        button_start.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:8px; border-width:4px; border-color: #D9D9D9;border-style: solid;")
         button_start.setFont(font_button)
         button_start.setFixedHeight(50)
         button_start.clicked.connect(self.timer_start)
 
         button_stop = QPushButton("Stop", self)
-        button_stop.setStyleSheet("background-color:#3C3C46; color:#D9D9D9;")
+        button_stop.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:8px; border-width:4px; border-color: #D9D9D9;border-style: solid;")
         button_stop.setFont(font_button)
         button_stop.setFixedHeight(50)
         button_stop.clicked.connect(lambda: self.timer.stop())
 
         button_reset = QPushButton("Reset", self)
-        button_reset.setStyleSheet("background-color:#3C3C46; color:#D9D9D9;")
+        button_reset.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:8px; border-width:4px; border-color: #D9D9D9;border-style: solid;")
         button_reset.setFont(font_button)
         button_reset.setFixedHeight(50)
         button_reset.clicked.connect(self.timer_reset)

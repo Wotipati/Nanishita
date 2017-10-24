@@ -14,6 +14,16 @@ class SubjectButton(QWidget):
                                ' Research      ', ' Survey        ', ' Writing       \n  a paper      ',
                                ' Making        \n  slides       ', ' Taking\n  a class      ', ' Chores        ']
 
+        self.path_icons = ['./icon/subjects/meeting.png',
+                           './icon/subjects/implementation.png',
+                           './icon/subjects/experiment.png',
+                           './icon/subjects/research.png',
+                           './icon/subjects/survey.png',
+                           './icon/subjects/paper.png',
+                           './icon/subjects/slide.png',
+                           './icon/subjects/class.png',
+                           './icon/subjects/chores.png']
+
         self.label_now_subject = QLabel('<h1></h1>', self)
         self.icon_now_subject = QPushButton()
         self.layout_now_subject = QHBoxLayout()
@@ -21,29 +31,9 @@ class SubjectButton(QWidget):
         self.buttons_subject = []
         self.init_ui()
 
-        self.path_icons = ['./icon/meeting.png',
-                           './icon/implementation.png',
-                           './icon/experiment.png',
-                           './icon/research.png',
-                           './icon/survey.png',
-                           './icon/paper.png',
-                           './icon/slide.png',
-                           './icon/class.png',
-                           './icon/chores.png']
-
     def init_ui(self):
         self.icon_now_subject.setFixedHeight(80)
         self.icon_now_subject.setFixedWidth(80)
-
-        path_icons = ['./icon/meeting.png',
-                      './icon/implementation.png',
-                      './icon/experiment.png',
-                      './icon/research.png',
-                      './icon/survey.png',
-                      './icon/paper.png',
-                      './icon/slide.png',
-                      './icon/class.png',
-                      './icon/chores.png']
 
         self.layout_grid.setAlignment(Qt.AlignLeft)
 
@@ -53,10 +43,10 @@ class SubjectButton(QWidget):
             button = QPushButton(subject)
             font_button = QFont("monospace", 13)
             button.setFont(font_button)
-
+            button.setStyleSheet("color:#D9D9D9;")
             button.setFixedHeight(80)
             button.setIconSize(QSize(60, 60))
-            button.setIcon(QIcon(path_icons[position[0]*3+position[1]]))
+            button.setIcon(QIcon(self.path_icons[position[0]*3+position[1]]))
             self.buttons_subject.append(button)
             self.layout_grid.addWidget(button, *position)
 
@@ -74,16 +64,6 @@ class SubjectButton(QWidget):
         self.layout_now_subject.addWidget(self.label_now_subject)
 
     def display_now_subject(self, index):
-        path_icons = ['./icon/meeting.png',
-                      './icon/implementation.png',
-                      './icon/experiment.png',
-                      './icon/research.png',
-                      './icon/survey.png',
-                      './icon/paper.png',
-                      './icon/slide.png',
-                      './icon/class.png',
-                      './icon/chores.png']
-
         self.icon_now_subject.setIconSize(QSize(60, 60))
-        self.icon_now_subject.setIcon(QIcon(path_icons[index]))
+        self.icon_now_subject.setIcon(QIcon(self.path_icons[index]))
         self.label_now_subject.setText('<font size="20" face="monospace"><b>{0}</b></font>'.format((self.buttons_subject[index].text())))
