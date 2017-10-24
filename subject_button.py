@@ -10,9 +10,9 @@ class SubjectButton(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.labels_subject = ['  Meeting', 'Implementation', '  Experiment',
-                               '  Research', '  Survey', '  Writing\n   a paper',
-                               '  Making\n   slides', '  Taking\n   a class', '  Chores']
+        self.labels_subject = [' Meeting       ', ' Implementation', ' Experiment    ',
+                               ' Research      ', ' Survey        ', ' Writing       \n  a paper      ',
+                               ' Making        \n  slides       ', ' Taking\n  a class      ', ' Chores        ']
 
         self.label_now_subject = QLabel('<h1></h1>', self)
         self.icon_now_subject = QLabel('<h1></h1>', self)
@@ -46,14 +46,11 @@ class SubjectButton(QWidget):
 
         for position, subject in zip(positions_subject, self.labels_subject):
             button = QPushButton(subject)
-            font_button = QFont("monospace", 16)
+            font_button = QFont("monospace", 13)
             button.setFont(font_button)
 
             button.setFixedHeight(80)
-#            pixmap = QPixmap(path_icons[position[0]*3+position[1]])
-#            pixmap_resized = pixmap.scaled(70, 70)
-#            button.setIcon(QIcon(pixmap_resized))
-            button.setIconSize(QSize(120, 120))
+            button.setIconSize(QSize(100, 100))
             button.setIcon(QIcon(path_icons[position[0]*3+position[1]]))
             self.buttons_subject.append(button)
             self.layout_grid.addWidget(button, *position)

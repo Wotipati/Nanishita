@@ -2,7 +2,7 @@
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QLabel
 from PyQt5.QtCore import QTimer
-from PyQt5.QtGui import QPixmap, QFont
+from PyQt5.QtGui import QPixmap, QFont, QColor, QPainter
 
 
 class Stopwatch(QWidget):
@@ -22,10 +22,10 @@ class Stopwatch(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        font_time = QFont()
-        font_time.setPointSize(50)
+        font_time = QFont("ariel", 70)
         font_time.setBold(True)
         self.label_time.setFont(font_time)
+        self.label_time.setStyleSheet("color:#F2EBBF;")
 
         layout_timer = QHBoxLayout()
         icon_timer = QLabel()
@@ -42,16 +42,19 @@ class Stopwatch(QWidget):
         font_button.setBold(True)
 
         button_start = QPushButton("Start", self)
+        button_start.setStyleSheet("background-color:#3C3C46;")
         button_start.setFont(font_button)
         button_start.setFixedHeight(50)
         button_start.clicked.connect(self.timer_start)
 
         button_stop = QPushButton("Stop", self)
+        button_stop.setStyleSheet("background-color:#3C3C46;")
         button_stop.setFont(font_button)
         button_stop.setFixedHeight(50)
         button_stop.clicked.connect(lambda: self.timer.stop())
 
         button_reset = QPushButton("Reset", self)
+        button_reset.setStyleSheet("background-color:#3C3C46;")
         button_reset.setFont(font_button)
         button_reset.setFixedHeight(50)
         button_reset.clicked.connect(self.timer_reset)

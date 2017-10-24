@@ -24,6 +24,8 @@ class Timenote(QMainWindow):
         self.init_ui()
 
     def init_ui(self):
+        self.main_widget.setStyleSheet("background-color:#54454A;")
+
         buttons_subject = SubjectButton()
         self.layout_user.addLayout(buttons_subject.layout_now_subject)
 
