@@ -44,7 +44,7 @@ class Timenote(QMainWindow):
         toolbar = self.addToolBar('&Toolbar')
         toolbar.addAction(exit_action)
 
-        self.setGeometry(500, 500, 480, 270)
+        self.setGeometry(500, 500, 640, 360)
         self.setWindowTitle('stop watch')
         self.show()
 

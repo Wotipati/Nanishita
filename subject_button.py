@@ -2,6 +2,7 @@
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout, QLabel
 from PyQt5.QtGui import QPixmap, QFont, QIcon
+from PyQt5.QtCore import QSize
 
 
 class SubjectButton(QWidget):
@@ -9,9 +10,9 @@ class SubjectButton(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.labels_subject = ['Meeting', 'Implementation', 'Experiment',
-                               'Research', 'Paper survey', 'Writing a paper',
-                               'Making slides', 'Taking a class', 'Chores']
+        self.labels_subject = ['  Meeting', 'Implementation', '  Experiment',
+                               '  Research', '  Survey', '  Writing\n   a paper',
+                               '  Making\n   slides', '  Taking\n   a class', '  Chores']
 
         self.label_now_subject = QLabel('<h1></h1>', self)
         self.icon_now_subject = QLabel('<h1></h1>', self)
@@ -45,6 +46,14 @@ class SubjectButton(QWidget):
 
         for position, subject in zip(positions_subject, self.labels_subject):
             button = QPushButton(subject)
+            font_button = QFont("monospace", 16)
+            button.setFont(font_button)
+
+            button.setFixedHeight(80)
+#            pixmap = QPixmap(path_icons[position[0]*3+position[1]])
+#            pixmap_resized = pixmap.scaled(70, 70)
+#            button.setIcon(QIcon(pixmap_resized))
+            button.setIconSize(QSize(120, 120))
             button.setIcon(QIcon(path_icons[position[0]*3+position[1]]))
             self.buttons_subject.append(button)
             self.layout_grid.addWidget(button, *position)
@@ -74,7 +83,6 @@ class SubjectButton(QWidget):
                       './icon/chores.png']
 
         pixmap = QPixmap(path_icons[index])
-        print(path_icons[index])
-        pixmap_resized = pixmap.scaled(50, 50)
+        pixmap_resized = pixmap.scaled(70, 70)
         self.icon_now_subject.setPixmap(pixmap_resized)
-        self.label_now_subject.setText('<h1>{0}</h1>'.format((self.buttons_subject[index].text())))
+        self.label_now_subject.setText('<font size="20" face="monospace"><b>{0}</b></font>'.format((self.buttons_subject[index].text())))

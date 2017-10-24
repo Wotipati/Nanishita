@@ -38,20 +38,22 @@ class Stopwatch(QWidget):
         time = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
         self.label_time.setText(str(time))
 
-        font_button = QFont()
-        font_button.setPointSize(20)
+        font_button = QFont("monospace", 20)
         font_button.setBold(True)
 
         button_start = QPushButton("Start", self)
         button_start.setFont(font_button)
+        button_start.setFixedHeight(50)
         button_start.clicked.connect(self.timer_start)
 
         button_stop = QPushButton("Stop", self)
         button_stop.setFont(font_button)
+        button_stop.setFixedHeight(50)
         button_stop.clicked.connect(lambda: self.timer.stop())
 
         button_reset = QPushButton("Reset", self)
         button_reset.setFont(font_button)
+        button_reset.setFixedHeight(50)
         button_reset.clicked.connect(self.timer_reset)
 
         layout_button = QHBoxLayout()
