@@ -8,6 +8,4 @@ backup
 *.mp4
 *.prproj
 *.DS_Store
-items/*
-backgrounds/*
-assets/
+
