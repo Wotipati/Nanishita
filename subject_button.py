@@ -10,14 +10,14 @@ class SubjectButton(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.labels_subject = [' Meeting       ', ' Implementation', ' Experiment    ',
-                               ' Research      ', ' Survey        ', ' Writing       \n  a paper      ',
+        self.labels_subject = [' Meeting       ', 'Implementation', ' Research      ',
+                               ' Experiment    ', ' Survey        ', ' Writing       \n  a paper      ',
                                ' Making        \n  slides       ', ' Taking\n  a class      ', ' Chores        ']
 
         self.path_icons = ['./icon/subjects/meeting.png',
                            './icon/subjects/implementation.png',
-                           './icon/subjects/experiment.png',
                            './icon/subjects/research.png',
+                           './icon/subjects/experiment.png',
                            './icon/subjects/survey.png',
                            './icon/subjects/paper.png',
                            './icon/subjects/slide.png',
@@ -32,8 +32,8 @@ class SubjectButton(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.icon_now_subject.setFixedHeight(80)
-        self.icon_now_subject.setFixedWidth(80)
+        self.icon_now_subject.setFixedHeight(100)
+        self.icon_now_subject.setFixedWidth(100)
 
         self.layout_grid.setAlignment(Qt.AlignLeft)
 
@@ -43,7 +43,7 @@ class SubjectButton(QWidget):
             button = QPushButton(subject)
             font_button = QFont("monospace", 13)
             button.setFont(font_button)
-            button.setStyleSheet("color:#D9D9D9;")
+            button.setStyleSheet("color:#D9D9D9; border-radius:8px; border-width:4px; border-color: #D9D9D9;border-style: solid;")
             button.setFixedHeight(80)
             button.setIconSize(QSize(60, 60))
             button.setIcon(QIcon(self.path_icons[position[0]*3+position[1]]))
@@ -64,6 +64,6 @@ class SubjectButton(QWidget):
         self.layout_now_subject.addWidget(self.label_now_subject)
 
     def display_now_subject(self, index):
-        self.icon_now_subject.setIconSize(QSize(60, 60))
+        self.icon_now_subject.setIconSize(QSize(100, 100))
         self.icon_now_subject.setIcon(QIcon(self.path_icons[index]))
         self.label_now_subject.setText('<font size="20" face="monospace"><b>{0}</b></font>'.format((self.buttons_subject[index].text())))
