@@ -19,6 +19,7 @@ class Timenote(QMainWindow):
         self.setCentralWidget(self.main_widget)
 
         self.buttons_subject = SubjectButton()
+        self.stopwatch = Stopwatch()
 
         self.layout_main = QHBoxLayout()
         self.layout_user = QVBoxLayout()
@@ -29,13 +30,11 @@ class Timenote(QMainWindow):
     def init_ui(self):
         self.main_widget.setStyleSheet("background-color:#32393D;")
 
-        stopwatch = Stopwatch()
-
         for button in self.buttons_subject.buttons_subject:
-            button.clicked.connect(stopwatch.timer_reset)
+            button.clicked.connect(self.stopwatch.timer_reset)
 
         self.layout_user.addLayout(self.buttons_subject.layout_now_subject)
-        self.layout_user.addLayout(stopwatch.layout_main)
+        self.layout_user.addLayout(self.stopwatch.layout_main)
         self.layout_user.addLayout(self.buttons_subject.layout_grid)
         self.layout_user.addLayout(self.buttons_subject.layout_editing_name)
 
@@ -87,7 +86,7 @@ class Timenote(QMainWindow):
 
     def add_history(self):
         text_finished_subject = self.buttons_subject.button_label_now_subject.text()
-        font_button = QFont("monospace", 14)
+        font_button = QFont("monospace", 20)
         button_label = QPushButton(text_finished_subject)
         button_label.setFont(font_button)
         button_label.setFixedHeight(60)
@@ -106,11 +105,18 @@ class Timenote(QMainWindow):
         button_icon.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
         button_icon.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
+        elapsed_time = "{0:02d}:{1:02d}:{2:02d}".format(self.stopwatch.hour, self.stopwatch.min, self.stopwatch.sec)
+        button_time = QPushButton(elapsed_time)
+
+        layout_label_and_time = QVBoxLayout()
+        layout_label_and_time.addWidget(button_label)
+        layout_label_and_time.addWidget(button_time)
+
         layout_history = QHBoxLayout()
         layout_history.setAlignment(Qt.AlignLeft)
         layout_history.setSpacing(2)
         layout_history.addWidget(button_icon)
-        layout_history.addWidget(button_label)
+        layout_history.addLayout(layout_label_and_time)
 
         widget_history = QWidget()
         widget_history.setLayout(layout_history)
