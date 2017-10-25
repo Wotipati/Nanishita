@@ -19,11 +19,11 @@ class Stopwatch(QWidget):
         self.min_total = 0
         self.hour_total = 0
 
-        self.icon_timer = QPushButton()
+        self.button_icon_timer = QPushButton()
         self.label_time = QLabel()
         self.label_time_total = QLabel()
         self.is_started = False
-        self.button_switch = QPushButton("Start", self)
+        self.button_label_timer = QPushButton("Start", self)
         self.layout_main = QHBoxLayout()
 
         self.init_ui()
@@ -40,14 +40,16 @@ class Stopwatch(QWidget):
         self.label_time_total.setFont(font_time_total)
         self.label_time_total.setFixedHeight(40)
         self.label_time_total.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
-        self.label_time_total.setStyleSheet("background-color:#3C3C46; color:#F2EBBF; border-radius:12px; border-style:solid;")
+        self.label_time_total.setStyleSheet("background-color:#3C3C46; color:#F2EBBF; border-radius:12px;"
+                                            "border-style:solid;")
 
-        self.icon_timer.setIconSize(QSize(100, 100))
-        self.icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
-        self.icon_timer.setStyleSheet("background-color:#3C3C46; color:#F2EBBF; border-radius:50px; border-style:solid;")
-        self.icon_timer.clicked.connect(lambda: self.timer_start(self.is_started))
-        self.button_switch.setFixedWidth(100)
-        self.button_switch.setFixedWidth(100)
+        self.button_icon_timer.setIconSize(QSize(100, 100))
+        self.button_icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
+        self.button_icon_timer.setStyleSheet("background-color:#3C3C46; color:#F2EBBF; border-radius:50px;"
+                                             "border-style:solid;")
+        self.button_icon_timer.clicked.connect(lambda: self.timer_start(self.is_started))
+        self.button_label_timer.setFixedWidth(100)
+        self.button_label_timer.setFixedWidth(100)
 
         time = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
         self.label_time.setText(time)
@@ -58,12 +60,12 @@ class Stopwatch(QWidget):
         font_button = QFont("monospace", 20)
         font_button.setBold(True)
 
-        self.button_switch.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:16px; border-width:0px;"
-                                         "border-color:#3A6A9A; border-style:solid;")
-        self.button_switch.setFont(font_button)
-        self.button_switch.setFixedHeight(40)
-        self.button_switch.setFixedWidth(110)
-        self.button_switch.clicked.connect(lambda: self.timer_start(self.is_started))
+        self.button_label_timer.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:16px;"
+                                              "border-style:solid;")
+        self.button_label_timer.setFont(font_button)
+        self.button_label_timer.setFixedHeight(40)
+        self.button_label_timer.setFixedWidth(110)
+        self.button_label_timer.clicked.connect(lambda: self.timer_start(self.is_started))
 
         layout_time_label = QVBoxLayout()
         layout_time_label.setSpacing(3)
@@ -72,8 +74,8 @@ class Stopwatch(QWidget):
 
         layout_timer = QVBoxLayout()
         layout_timer.setSpacing(3)
-        layout_timer.addWidget(self.icon_timer)
-        layout_timer.addWidget(self.button_switch)
+        layout_timer.addWidget(self.button_icon_timer)
+        layout_timer.addWidget(self.button_label_timer)
 
         self.layout_main.addLayout(layout_timer)
         self.layout_main.addLayout(layout_time_label)
@@ -81,19 +83,19 @@ class Stopwatch(QWidget):
     def timer_start(self, is_started):
         if is_started:
             self.timer.stop()
-            self.button_switch.setText("Start")
+            self.button_label_timer.setText("Start")
 
-            self.icon_timer.setIconSize(QSize(100, 100))
-            self.icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
+            self.button_icon_timer.setIconSize(QSize(100, 100))
+            self.button_icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
 
             self.is_started = False
 
         else:
             self.timer.start(1000)
-            self.button_switch.setText("Stop")
+            self.button_label_timer.setText("Stop")
 
-            self.icon_timer.setIconSize(QSize(100, 100))
-            self.icon_timer.setIcon(QIcon('./icon/stopwatch_start.png'))
+            self.button_icon_timer.setIconSize(QSize(100, 100))
+            self.button_icon_timer.setIcon(QIcon('./icon/stopwatch_start.png'))
 
             self.is_started = True
 
@@ -106,9 +108,9 @@ class Stopwatch(QWidget):
         time = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
         self.label_time.setText(time)
 
-        self.button_switch.setText("Start")
-        self.icon_timer.setIconSize(QSize(100, 100))
-        self.icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
+        self.button_label_timer.setText("Start")
+        self.button_icon_timer.setIconSize(QSize(100, 100))
+        self.button_icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
 
         self.is_started = False
 

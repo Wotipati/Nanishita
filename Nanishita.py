@@ -39,16 +39,30 @@ class Timenote(QMainWindow):
         self.layout_user.addLayout(self.buttons_subject.layout_grid)
         self.layout_user.addLayout(self.buttons_subject.layout_editing_name)
 
+        self.layout_subject_history.setAlignment(Qt.AlignTop)
+        self.layout_subject_history.setSpacing(2)
+
         scroll_area_subjects = QScrollArea()
-        scroll_area_subjects.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        scroll_area_subjects.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         scroll_area_subjects.setWidgetResizable(True)
         scroll_area_subjects.setEnabled(True)
+        scroll_area_subjects.setStyleSheet("background-color:#3C3C46; border-radius:18px; border-width:0px;"
+                                           "border-color:#586473; border-style:solid")
         scroll_contents = QWidget(scroll_area_subjects)
         scroll_contents.setLayout(self.layout_subject_history)
         scroll_area_subjects.setWidget(scroll_contents)
 
-        button_history = QPushButton("Finished this work")
-        button_history.clicked.connect(self.add_history)
+        font_button = QFont("monospace", 20)
+        font_button.setBold(True)
+
+        button_history = QPushButton("Today's history")
+        button_history.setFont(font_button)
+        button_history.setFixedHeight(40)
+        button_history.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:16px; border-width:0px;"
+                                     "border-color:#3A6A9A; border-style:solid;")
+
+        self.buttons_subject.button_icon_now_subject.clicked.connect(self.add_history)
+        self.buttons_subject.button_label_now_subject.clicked.connect(self.add_history)
 
         layout_history = QVBoxLayout()
         layout_history.addWidget(button_history)
@@ -67,18 +81,17 @@ class Timenote(QMainWindow):
         toolbar = self.addToolBar('&Toolbar')
         toolbar.addAction(exit_action)
 
-        self.setGeometry(500, 500, 640, 360)
+        self.setGeometry(50, 50, 840, 360)
         self.setWindowTitle('stop watch')
         self.show()
 
     def add_history(self):
-        text_finished_subject = self.buttons_subject.label_now_subject.text()
+        text_finished_subject = self.buttons_subject.button_label_now_subject.text()
         font_button = QFont("monospace", 14)
         button_label = QPushButton(text_finished_subject)
         button_label.setFont(font_button)
         button_label.setFixedHeight(60)
-        button_label.setFixedWidth(108)
-        button_label.setStyleSheet("background-color:#32393D; color:#D9D9D9; text-align:left; border-style:solid")
+        button_label.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; text-align:left; border-style:solid")
         button_label.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
         button_label.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
@@ -88,12 +101,14 @@ class Timenote(QMainWindow):
         button_icon.setIconSize(QSize(38, 38))
         index = self.buttons_subject.index_now_subject
         button_icon.setIcon(QIcon(self.buttons_subject.path_icons[index]))
-        button_icon.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius: 30px; border-style:solid;"
+        button_icon.setStyleSheet("background-color:#32393D; color:#D9D9D9; border-radius: 30px; border-style:solid;"
                                   "border-width:2px; border-color:#586473;")
         button_icon.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
         button_icon.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
         layout_history = QHBoxLayout()
+        layout_history.setAlignment(Qt.AlignLeft)
+        layout_history.setSpacing(2)
         layout_history.addWidget(button_icon)
         layout_history.addWidget(button_label)
 
