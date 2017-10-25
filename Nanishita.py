@@ -5,7 +5,7 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout,\
                             QAction, QLabel, QScrollArea
 from PyQt5.QtCore import QCoreApplication, QSize, Qt
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFont
 from stopwatch import Stopwatch
 from subject_button import SubjectButton
 
@@ -73,18 +73,29 @@ class Timenote(QMainWindow):
 
     def add_history(self):
         text_finished_subject = self.buttons_subject.label_now_subject.text()
-        label_history = QLabel()
-        label_history.setText(text_finished_subject)
+        font_button = QFont("monospace", 14)
+        button_label = QPushButton(text_finished_subject)
+        button_label.setFont(font_button)
+        button_label.setFixedHeight(60)
+        button_label.setFixedWidth(108)
+        button_label.setStyleSheet("background-color:#32393D; color:#D9D9D9; text-align:left; border-style:solid")
+        button_label.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
+        button_label.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
-        icon_history = QPushButton()
+        button_icon = QPushButton()
+        button_icon.setFixedHeight(60)
+        button_icon.setFixedWidth(60)
+        button_icon.setIconSize(QSize(38, 38))
         index = self.buttons_subject.index_now_subject
-        icon_history.setIcon(QIcon(self.buttons_subject.path_icons[index]))
-        icon_history.setIconSize(QSize(50, 50))
-        icon_history.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
+        button_icon.setIcon(QIcon(self.buttons_subject.path_icons[index]))
+        button_icon.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius: 30px; border-style:solid;"
+                                  "border-width:2px; border-color:#586473;")
+        button_icon.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
+        button_icon.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
         layout_history = QHBoxLayout()
-        layout_history.addWidget(icon_history)
-        layout_history.addWidget(label_history)
+        layout_history.addWidget(button_icon)
+        layout_history.addWidget(button_label)
 
         widget_history = QWidget()
         widget_history.setLayout(layout_history)
