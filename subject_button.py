@@ -10,19 +10,19 @@ class SubjectButton(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.labels_subject = [' Meeting       ', 'Implementation', ' Research      ',
-                               ' Experiment    ', ' Survey        ', ' Writing       \n  a paper      ',
-                               ' Making        \n  slides       ', ' Taking\n  a class      ', ' Chores        ']
+        self.labels_subject = ['Meeting', 'Implementation', 'Research',
+                               'Experiment', 'Survey', 'Writing a paper',
+                               'Making slides', 'Taking a class', 'Chores']
 
-        self.path_icons = ['./icon/subjects/meeting.png',
-                           './icon/subjects/implementation.png',
-                           './icon/subjects/research.png',
-                           './icon/subjects/experiment.png',
-                           './icon/subjects/survey.png',
-                           './icon/subjects/paper.png',
-                           './icon/subjects/slide.png',
-                           './icon/subjects/class.png',
-                           './icon/subjects/chores.png']
+        self.path_icons = ['./icon/subject/meeting.png',
+                           './icon/subject/implementation.png',
+                           './icon/subject/research.png',
+                           './icon/subject/experiment.png',
+                           './icon/subject/survey.png',
+                           './icon/subject/paper.png',
+                           './icon/subject/slide.png',
+                           './icon/subject/class.png',
+                           './icon/subject/chores.png']
 
         self.label_now_subject = QLabel('<h1></h1>', self)
         self.icon_now_subject = QPushButton()
@@ -34,8 +34,11 @@ class SubjectButton(QWidget):
     def init_ui(self):
         self.icon_now_subject.setFixedHeight(100)
         self.icon_now_subject.setFixedWidth(100)
-
-        self.layout_grid.setAlignment(Qt.AlignLeft)
+        self.icon_now_subject.setStyleSheet(
+            "background-color:#3C3C46; color:#D9D9D9; border-radius:8px; border-width:0px; border-color:#D9D9D9;"
+            "border-style: solid;")
+        self.label_now_subject.setStyleSheet(
+            "color:#D9D9D9; border-radius:8px; border-width:0px; border-color:#D9D9D9; border-style:solid;")
 
         positions_subject = [(i, j) for i in range(3) for j in range(3)]
 
@@ -43,10 +46,13 @@ class SubjectButton(QWidget):
             button = QPushButton(subject)
             font_button = QFont("monospace", 13)
             button.setFont(font_button)
-            button.setStyleSheet("color:#D9D9D9; border-radius:8px; border-width:4px; border-color: #D9D9D9;border-style: solid;")
-            button.setFixedHeight(80)
-            button.setIconSize(QSize(60, 60))
+            button.setFixedHeight(55)
+            button.setFixedWidth(160)
+            button.setIconSize(QSize(50, 50))
             button.setIcon(QIcon(self.path_icons[position[0]*3+position[1]]))
+            button.setStyleSheet(
+                "background-color:#3C3C46; color:#D9D9D9; border-radius:8px; border-width:0px; border-color:#D9D9D9;"
+                "border-style:solid;")
             self.buttons_subject.append(button)
             self.layout_grid.addWidget(button, *position)
 
@@ -64,6 +70,6 @@ class SubjectButton(QWidget):
         self.layout_now_subject.addWidget(self.label_now_subject)
 
     def display_now_subject(self, index):
-        self.icon_now_subject.setIconSize(QSize(100, 100))
+        self.icon_now_subject.setIconSize(QSize(80, 80))
         self.icon_now_subject.setIcon(QIcon(self.path_icons[index]))
         self.label_now_subject.setText('<font size="20" face="monospace"><b>{0}</b></font>'.format((self.buttons_subject[index].text())))
