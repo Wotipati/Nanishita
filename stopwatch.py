@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import time
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QLabel
 from PyQt5.QtCore import QTimer, QSize, Qt
 from PyQt5.QtGui import QFont, QIcon
@@ -18,6 +19,9 @@ class Stopwatch(QWidget):
         self.sec_total = 0
         self.min_total = 0
         self.hour_total = 0
+        self.start_time = 0
+        self.elapsed_time = 0
+        self.elapsed_time_total = 0
 
         self.button_icon_timer = QPushButton()
         self.label_time = QLabel()
@@ -88,10 +92,14 @@ class Stopwatch(QWidget):
             self.button_icon_timer.setIconSize(QSize(100, 100))
             self.button_icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
 
+            self.elapsed_time += time.time() - self.start_time
+            self.elapsed_time_total += time.time() - self.start_time
+
             self.is_started = False
 
         else:
-            self.timer.start(1000)
+            self.start_time = time.time()
+            self.timer.start(100)
             self.button_label_timer.setText("Stop")
 
             self.button_icon_timer.setIconSize(QSize(100, 100))
@@ -105,44 +113,33 @@ class Stopwatch(QWidget):
         self.min = 0
         self.hour = 0
 
-        time = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
-        self.label_time.setText(time)
+        time_reset = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
+        self.label_time.setText(time_reset)
 
         self.button_label_timer.setText("Start")
         self.button_icon_timer.setIconSize(QSize(100, 100))
         self.button_icon_timer.setIcon(QIcon('./icon/stopwatch_stop.png'))
 
+        self.elapsed_time = 0
+
         self.is_started = False
 
     def time_count(self):
-        if self.sec < 59:
-            self.sec += 1
+        s = self.elapsed_time + time.time() - self.start_time
+        s_total = self.elapsed_time_total + time.time() - self.start_time
 
-        else:
-            if self.min < 59:
-                self.sec = 0
-                self.min += 1
+        self.sec = int(s) % 60
+        m = int(s / 60)
+        self.min = m % 60
+        self.hour = int(m / 60)
 
-            elif self.min == 59:
-                self.hour += 1
-                self.min = 0
-                self.sec = 0
+        self.sec_total = int(s_total) % 60
+        m_total = int(s / 60)
+        self.min_total = m_total % 60
+        self.hour_total = int(m_total / 60)
 
-        if self.sec_total < 59:
-            self.sec_total += 1
-
-        else:
-            if self.min_total < 59:
-                self.sec_total = 0
-                self.min_total += 1
-
-            elif self.min_total == 59:
-                self.hour_total += 1
-                self.min_total = 0
-                self.sec_total = 0
-
-        time = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
-        self.label_time.setText(time)
+        elapsed_time = "{0:02d}:{1:02d}:{2:02d}".format(self.hour, self.min, self.sec)
+        self.label_time.setText(elapsed_time)
 
         total = "Today's total time: {0:02d}:{1:02d}:{2:02d}  ".format(self.hour_total, self.min_total, self.sec_total)
         self.label_time_total.setText(total)

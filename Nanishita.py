@@ -72,7 +72,7 @@ class Timenote(QMainWindow):
         self.main_widget.setLayout(self.layout_main)
 
         self.setGeometry(50, 50, 870, 360)
-        self.setWindowTitle('stop watch')
+        self.setWindowTitle('Nanishita')
         self.show()
 
     def add_history(self):
@@ -87,6 +87,7 @@ class Timenote(QMainWindow):
             button_label.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; text-align:left; border-style:solid")
             button_label.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
             button_label.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
+            button_label.clicked.connect(self.stopwatch.timer_reset)
 
             button_icon = QPushButton()
             button_icon.setFixedHeight(60)
@@ -98,6 +99,7 @@ class Timenote(QMainWindow):
                                       "border-width:2px; border-color:#586473;")
             button_icon.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
             button_icon.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
+            button_icon.clicked.connect(self.stopwatch.timer_reset)
 
             elapsed_time = "{0:02d}:{1:02d}:{2:02d}".format(self.stopwatch.hour, self.stopwatch.min, self.stopwatch.sec)
             button_time = QPushButton(elapsed_time)
