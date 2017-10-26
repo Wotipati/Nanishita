@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout, QLabel, QLineEdit
-from PyQt5.QtGui import QPixmap, QFont, QIcon
-from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtWidgets import QWidget, QPushButton, QGridLayout, QHBoxLayout, QLineEdit
+from PyQt5.QtGui import QFont, QIcon
+from PyQt5.QtCore import QSize
 
 
 class SubjectButton(QWidget):

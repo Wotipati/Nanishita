@@ -2,9 +2,8 @@
 
 import sys
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout,\
-                            QAction, QLabel, QScrollArea
-from PyQt5.QtCore import QCoreApplication, QSize, Qt
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QScrollArea
+from PyQt5.QtCore import QSize, Qt
 from PyQt5.QtGui import QIcon, QFont
 from stopwatch import Stopwatch
 from subject_button import SubjectButton
@@ -71,14 +70,6 @@ class Timenote(QMainWindow):
         self.layout_main.addLayout(layout_history)
 
         self.main_widget.setLayout(self.layout_main)
-
-        exit_action = QAction(QIcon('./icon/exit.png'), '&Exit', self)
-        exit_action.setShortcut('Ctrl+Q')
-        exit_action.setStatusTip('Exit Application')
-        exit_action.triggered.connect(QCoreApplication.instance().quit)
-
-       # toolbar = self.addToolBar('&Toolbar')
-       # toolbar.addAction(exit_action)
 
         self.setGeometry(50, 50, 870, 360)
         self.setWindowTitle('stop watch')
