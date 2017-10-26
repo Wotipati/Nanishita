@@ -80,6 +80,7 @@ class Timenote(QMainWindow):
         if b != 0 and self.stopwatch.is_started is False:
             text_finished_subject = self.buttons_subject.button_label_now_subject.text()
             font_button = QFont("monospace", 20)
+            font_button.setBold(True)
             button_label = QPushButton(text_finished_subject)
             button_label.setFont(font_button)
             button_label.setFixedHeight(30)
@@ -100,6 +101,7 @@ class Timenote(QMainWindow):
 
             elapsed_time = "{0:02d}:{1:02d}:{2:02d}".format(self.stopwatch.hour, self.stopwatch.min, self.stopwatch.sec)
             button_time = QPushButton(elapsed_time)
+            font_button.setBold(False)
             button_time.setFont(font_button)
             button_time.setFixedHeight(30)
             button_time.setFixedWidth(200)
