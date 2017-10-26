@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b99bdb73-1f15-47d3-814a-b677b69738ec" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Nanishita.py" afterPath="$PROJECT_DIR$/Nanishita.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subject_button.py" afterPath="$PROJECT_DIR$/subject_button.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Nanishita.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Nanishita.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Nanishita.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="214">
+              <caret line="80" column="38" lean-forward="false" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -26,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="subject_button.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="subject_button.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/subject_button.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="93" column="57" lean-forward="false" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
+            <state relative-caret-position="275">
+              <caret line="111" column="51" lean-forward="false" selection-start-line="111" selection-start-column="51" selection-end-line="111" selection-end-column="51" />
               <folding>
                 <element signature="e#25#118#0" expanded="true" />
               </folding>
@@ -41,8 +43,8 @@
       <file leaf-file-name="stopwatch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stopwatch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-386">
-              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="555">
+              <caret line="94" column="51" lean-forward="true" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
               <folding>
                 <element signature="e#25#107#0" expanded="true" />
               </folding>
@@ -79,8 +81,8 @@
         <option value="$PROJECT_DIR$/buttons_subject.py" />
         <option value="$PROJECT_DIR$/subject.py" />
         <option value="$PROJECT_DIR$/stopwatch.py" />
-        <option value="$PROJECT_DIR$/subject_button.py" />
         <option value="$PROJECT_DIR$/Nanishita.py" />
+        <option value="$PROJECT_DIR$/subject_button.py" />
       </list>
     </option>
   </component>
@@ -268,7 +270,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11894273" sideWeight="0.34168014" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24082232" sideWeight="0.6583199" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.398773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -743,16 +745,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stopwatch2.py" />
-    <entry file="file://$PROJECT_DIR$/subject_button.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="93" column="57" lean-forward="false" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
-          <folding>
-            <element signature="e#25#118#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -763,8 +755,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stopwatch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-386">
-          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state relative-caret-position="555">
+          <caret line="94" column="51" lean-forward="true" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
           <folding>
             <element signature="e#25#107#0" expanded="true" />
           </folding>
@@ -773,10 +765,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Nanishita.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="214">
+          <caret line="80" column="38" lean-forward="false" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subject_button.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="111" column="51" lean-forward="false" selection-start-line="111" selection-start-column="51" selection-end-line="111" selection-end-column="51" />
+          <folding>
+            <element signature="e#25#118#0" expanded="true" />
           </folding>
         </state>
       </provider>

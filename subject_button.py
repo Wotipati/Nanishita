@@ -102,14 +102,14 @@ class SubjectButton(QWidget):
 
         self.button_editing_name.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:12px;"
                                                "border-width:0px; border-color:#3A6A9A; border-style:solid;")
-        font_button = QFont("monospace", 20)
+        font_button = QFont("monospace", 17)
         font_button.setBold(True)
         self.button_editing_name.setFont(font_button)
-        self.button_editing_name.setFixedHeight(40)
+        self.button_editing_name.setFixedHeight(30)
         self.button_editing_name.setFixedWidth(110)
         self.button_editing_name.clicked.connect(lambda: self.change_subject_name(self.textbox_editing_name.text()))
 
-        self.textbox_editing_name.setFixedHeight(35)
+        self.textbox_editing_name.setFixedHeight(23)
         self.textbox_editing_name.setFont(font_button)
         self.textbox_editing_name.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; border-radius:8px;"
                                                 "border-width:0px; border-color:#D9D9D9; border-style:outset;")

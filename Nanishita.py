@@ -77,51 +77,59 @@ class Timenote(QMainWindow):
         exit_action.setStatusTip('Exit Application')
         exit_action.triggered.connect(QCoreApplication.instance().quit)
 
-        toolbar = self.addToolBar('&Toolbar')
-        toolbar.addAction(exit_action)
+       # toolbar = self.addToolBar('&Toolbar')
+       # toolbar.addAction(exit_action)
 
-        self.setGeometry(50, 50, 840, 360)
+        self.setGeometry(50, 50, 870, 360)
         self.setWindowTitle('stop watch')
         self.show()
 
     def add_history(self):
-        text_finished_subject = self.buttons_subject.button_label_now_subject.text()
-        font_button = QFont("monospace", 20)
-        button_label = QPushButton(text_finished_subject)
-        button_label.setFont(font_button)
-        button_label.setFixedHeight(60)
-        button_label.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; text-align:left; border-style:solid")
-        button_label.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
-        button_label.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
+        b = self.stopwatch.hour + self.stopwatch.min + self.stopwatch.sec
+        if b != 0 and self.stopwatch.is_started is False:
+            text_finished_subject = self.buttons_subject.button_label_now_subject.text()
+            font_button = QFont("monospace", 20)
+            button_label = QPushButton(text_finished_subject)
+            button_label.setFont(font_button)
+            button_label.setFixedHeight(30)
+            button_label.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; text-align:left; border-style:solid")
+            button_label.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
+            button_label.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
-        button_icon = QPushButton()
-        button_icon.setFixedHeight(60)
-        button_icon.setFixedWidth(60)
-        button_icon.setIconSize(QSize(38, 38))
-        index = self.buttons_subject.index_now_subject
-        button_icon.setIcon(QIcon(self.buttons_subject.path_icons[index]))
-        button_icon.setStyleSheet("background-color:#32393D; color:#D9D9D9; border-radius: 30px; border-style:solid;"
-                                  "border-width:2px; border-color:#586473;")
-        button_icon.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
-        button_icon.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
+            button_icon = QPushButton()
+            button_icon.setFixedHeight(60)
+            button_icon.setFixedWidth(60)
+            button_icon.setIconSize(QSize(38, 38))
+            index = self.buttons_subject.index_now_subject
+            button_icon.setIcon(QIcon(self.buttons_subject.path_icons[index]))
+            button_icon.setStyleSheet("background-color:#32393D; color:#D9D9D9; border-radius: 30px; border-style:solid;"
+                                      "border-width:2px; border-color:#586473;")
+            button_icon.clicked.connect(lambda: self.buttons_subject.display_now_subject(index))
+            button_icon.clicked.connect(lambda: self.buttons_subject.change_subject_name(text_finished_subject))
 
-        elapsed_time = "{0:02d}:{1:02d}:{2:02d}".format(self.stopwatch.hour, self.stopwatch.min, self.stopwatch.sec)
-        button_time = QPushButton(elapsed_time)
+            elapsed_time = "{0:02d}:{1:02d}:{2:02d}".format(self.stopwatch.hour, self.stopwatch.min, self.stopwatch.sec)
+            button_time = QPushButton(elapsed_time)
+            button_time.setFont(font_button)
+            button_time.setFixedHeight(30)
+            button_time.setFixedWidth(200)
+            button_time.setStyleSheet("background-color:#3C3C46; color:#D9D9D9; text-align:right; border-style:solid")
 
-        layout_label_and_time = QVBoxLayout()
-        layout_label_and_time.addWidget(button_label)
-        layout_label_and_time.addWidget(button_time)
+            layout_label_and_time = QVBoxLayout()
+            layout_label_and_time.setSpacing(2)
+            layout_label_and_time.setAlignment(Qt.AlignRight)
+            layout_label_and_time.addWidget(button_label)
+            layout_label_and_time.addWidget(button_time)
 
-        layout_history = QHBoxLayout()
-        layout_history.setAlignment(Qt.AlignLeft)
-        layout_history.setSpacing(2)
-        layout_history.addWidget(button_icon)
-        layout_history.addLayout(layout_label_and_time)
+            layout_history = QHBoxLayout()
+            layout_history.setAlignment(Qt.AlignLeft)
+            layout_history.setSpacing(4)
+            layout_history.addWidget(button_icon)
+            layout_history.addLayout(layout_label_and_time)
 
-        widget_history = QWidget()
-        widget_history.setLayout(layout_history)
+            widget_history = QWidget()
+            widget_history.setLayout(layout_history)
 
-        self.layout_subject_history.addWidget(widget_history)
+            self.layout_subject_history.addWidget(widget_history)
 
 
 def main():
