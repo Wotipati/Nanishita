@@ -60,7 +60,9 @@ class Timenote(QMainWindow):
                                      "border-color:#3A6A9A; border-style:solid;")
 
         self.buttons_subject.button_icon_now_subject.clicked.connect(self.add_history)
+        self.buttons_subject.button_icon_now_subject.clicked.connect(self.stopwatch.timer_reset)
         self.buttons_subject.button_label_now_subject.clicked.connect(self.add_history)
+        self.buttons_subject.button_label_now_subject.clicked.connect(self.stopwatch.timer_reset)
 
         layout_history = QVBoxLayout()
         layout_history.addWidget(button_history)
