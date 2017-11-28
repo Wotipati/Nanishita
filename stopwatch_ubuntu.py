@@ -134,7 +134,7 @@ class Stopwatch(QWidget):
         self.hour = int(m / 60)
 
         self.sec_total = int(s_total) % 60
-        m_total = int(s / 60)
+        m_total = int(s_total / 60)
         self.min_total = m_total % 60
         self.hour_total = int(m_total / 60)
 
