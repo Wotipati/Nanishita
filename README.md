@@ -1,13 +1,13 @@
 # Nanishita
 
-##### What did you do today?
+### What did you do today?
 
 my first app with PyQt5
 
 >python 3.6.3  
 >PyQt 5.6.2
 
-##### Lets's START!!!
+### Lets's START!!!
 ```
 # For macOS
 $ python nanishita.py
