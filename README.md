@@ -7,6 +7,8 @@ my first app with PyQt5
 >python 3.6.3  
 >PyQt 5.6.2
 
+---
+
 ### Lets's START!!!
 ```
 # For macOS
